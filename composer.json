@@ -1,0 +1,17 @@
+{
+    "name": "levonliu/packages-for-laravel",
+    "authors": [
+        {
+            "name": "liuwen",
+            "email": "levonliu@outlook.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Levonliu\\Packages\\": "src"
+        }
+    }
+}

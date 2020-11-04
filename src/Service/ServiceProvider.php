@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
+    protected $configs = ['request'];
+
     /**
      * Register services.
      *
@@ -13,6 +15,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
+        $this->mergeConfig();
     }
 
     /**
@@ -34,5 +37,12 @@ class ServiceProvider extends BaseServiceProvider
         $this->publishes([
             $configs   => $configPath
         ]);
+    }
+
+    public function mergeConfig()
+    {
+        foreach ($this->configs as $key) {
+            $this->mergeConfigFrom(__DIR__ . '/../../config/' . $key . '.php', $key);
+        }
     }
 }

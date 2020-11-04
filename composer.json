@@ -1,11 +1,15 @@
 {
-    "name": "levonliu/packages-for-laravel",
+    "name": "liuwen/packages",
+    "description": "packages for laravel",
+    "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "liuwen",
             "email": "levonliu@outlook.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "guzzlehttp/guzzle": "^7.2"
     },

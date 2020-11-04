@@ -13,7 +13,6 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->publish();
     }
 
     /**
@@ -23,7 +22,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publish();
     }
 
     public function publish()

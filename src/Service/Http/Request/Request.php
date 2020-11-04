@@ -48,7 +48,7 @@ abstract class Request
             'base_uri' => config('levon.request.base_uri'),
             'timeout'  => config('levon.request.curl_timeout'),
             'handler'  => $stack,
-            'verify'   => FALSE
+            'verify'   => config('levon.request.verify'),
         ]);
     }
 

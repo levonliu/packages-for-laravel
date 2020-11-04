@@ -45,8 +45,8 @@ abstract class Request
         }));
 
         return new GuzzleHttpClient([
-            'base_uri' => config('levon.request.base_uri'),
-            'timeout'  => config('levon.request.curl_timeout'),
+            'base_uri' => config('request.base_uri'),
+            'timeout'  => config('request.curl_timeout'),
             'handler'  => $stack,
             'verify'   => config('levon.request.verify'),
         ]);

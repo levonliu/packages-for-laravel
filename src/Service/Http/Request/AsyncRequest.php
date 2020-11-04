@@ -1,5 +1,5 @@
 <?php
-namespace Levonliu\Packages\Http\Request;
+namespace Levonliu\Packages\Service\Http\Request;
 
 use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\ResponseInterface;

@@ -1,14 +1,18 @@
 <?php
-namespace Levonliu\Packages\Http\Request;
+
+namespace Levonliu\Packages\Service\Http\Request;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Facades\Log;
-use Levonliu\Packages\Http\Traits\RequestTraits;
-use Levonliu\Packages\Http\Traits\ResponseTraits;
+use Levonliu\Packages\Service\Http\Traits\RequestTraits;
+use Levonliu\Packages\Service\Http\Traits\ResponseTraits;
+use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -22,6 +26,31 @@ abstract class Request
      * @var GuzzleHttpClient
      */
     protected $httpClient;
+
+    public function __construct()
+    {
+        $this->httpClient = $this->buildTestClient();
+    }
+
+    protected function buildTestClient()
+    {
+        $handler = \GuzzleHttp\choose_handler();
+        $stack   = HandlerStack::create($handler);
+
+        $stack->push(Middleware::mapRequest(function (RequestInterface $request) use ($stack) {
+            if ($request->getMethod() == 'POST') {
+                $request->withHeader('Content-type', 'application/x-www-form-urlencoded');
+            }
+            return $request->withHeader('Accept', 'application/json');
+        }));
+
+        return new GuzzleHttpClient([
+            'base_uri' => config('levon.request.base_uri'),
+            'timeout'  => config('levon.request.curl_timeout'),
+            'handler'  => $stack,
+            'verify'   => FALSE
+        ]);
+    }
 
     /**
      * @return GuzzleHttpClient
@@ -136,7 +165,7 @@ abstract class Request
         return json_decode($text, TRUE);
     }
 
-    protected function batch($requests, \Closure $fulfilled = null, \Closure $rejected = null)
+    protected function batch($requests, \Closure $fulfilled = NULL, \Closure $rejected = NULL)
     {
         $results = [];
 

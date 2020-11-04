@@ -1,6 +1,6 @@
 <?php
 
-namespace Levonliu\Packages\Http\Traits;
+namespace Levonliu\Packages\Service\Http\Traits;
 
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Arr;

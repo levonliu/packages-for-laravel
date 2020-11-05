@@ -1,8 +1,5 @@
 ## Packages-For-Laravel
 
-[![license](https://img.shields.io/badge/license-WTFPL%20--%20Do%20What%20the%20Fuck%20You%20Want%20to%20Public%20License-green.svg)](https://raw.githubusercontent.com/ALawating-Rex/packagetest-for-laravel/master/LICENSE)
-
-
 ## Installation and Configuration
 
 Install the current version of the `levonliu/packages-for-laravel` package via composer:

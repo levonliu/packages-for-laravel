@@ -31,7 +31,7 @@ class ServiceProvider extends BaseServiceProvider
     public function publish()
     {
         //配置文件
-        $configs = __DIR__ . '/../Config';
+        $configs = __DIR__ . '/../../config';
         $configPath = config_path();
 
         $this->publishes([
@@ -42,7 +42,7 @@ class ServiceProvider extends BaseServiceProvider
     public function mergeConfig()
     {
         foreach ($this->configs as $key) {
-            $this->mergeConfigFrom(__DIR__ . '/../Config/' . $key . '.php', $key);
+            $this->mergeConfigFrom(__DIR__ . '/../../config/' . $key . '.php', $key);
         }
     }
 }

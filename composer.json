@@ -17,5 +17,12 @@
         "psr-4": {
             "Levonliu\\Packages\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Levonliu\\Packages\\Service\\ServiceProvider"
+            ]
+        }
     }
 }

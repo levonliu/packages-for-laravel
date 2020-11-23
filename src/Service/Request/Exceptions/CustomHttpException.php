@@ -1,5 +1,5 @@
 <?php
-namespace Levonliu\Packages\Service\Http\Exceptions;
+namespace Levonliu\Packages\Service\Request\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 

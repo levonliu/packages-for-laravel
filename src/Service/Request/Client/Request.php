@@ -1,6 +1,6 @@
 <?php
 
-namespace Levonliu\Packages\Service\Http\Request;
+namespace Levonliu\Packages\Service\Request\Client;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\RequestException;
@@ -10,8 +10,8 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Facades\Log;
-use Levonliu\Packages\Service\Http\Traits\RequestTraits;
-use Levonliu\Packages\Service\Http\Traits\ResponseTraits;
+use Levonliu\Packages\Service\Request\Traits\RequestTraits;
+use Levonliu\Packages\Service\Request\Traits\ResponseTraits;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
@@ -189,7 +189,7 @@ abstract class Request
 
     private function logRequestException($path, \Throwable $throwable)
     {
-        Log::error("Request: {$path} error[" . $throwable->getMessage() . ']');
+        Log::error("Client: {$path} error[" . $throwable->getMessage() . ']');
     }
 
 }

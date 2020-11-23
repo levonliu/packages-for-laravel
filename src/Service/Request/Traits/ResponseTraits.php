@@ -1,12 +1,11 @@
 <?php
 
-namespace Levonliu\Packages\Service\Http\Traits;
+namespace Levonliu\Packages\Service\Request\Traits;
 
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Arr;
-use Levonliu\Packages\Service\Http\Exceptions\CustomHttpException;
+use Levonliu\Packages\Service\Request\Exceptions\CustomHttpException;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 trait ResponseTraits
 {

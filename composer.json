@@ -22,7 +22,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Levonliu\\Packages\\Service\\ServiceProvider"
+                "Levonliu\\Packages\\Service\\ServiceProvider",
+                "Levonliu\\Packages\\Service\\EventServiceProvider"
             ]
         }
     }

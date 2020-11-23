@@ -1,6 +1,6 @@
 <?php
 
-namespace Levonliu\Packages\Service\Http\Traits;
+namespace Levonliu\Packages\Service\Request\Traits;
 
 trait RequestTraits
 {

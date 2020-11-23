@@ -134,6 +134,6 @@ trait Authenticate
      */
     protected function getTTL()
     {
-        return $this->guard()->factory()->getTTL() * 1;
+        return $this->guard()->factory()->getTTL();
     }
 }
